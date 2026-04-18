@@ -136,7 +136,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/hexo-blog-source/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -145,7 +145,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -162,6 +162,156 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://2846807617frank-ops.github.io/hexo-blog-source/2026/03/13/datalab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo-blog-source/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/hexo-blog-source/2026/03/13/datalab/" class="post-title-link" itemprop="url">【学习复盘】首次接触CS:APP：DataLab复盘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-03-13 15:00:00" itemprop="dateCreated datePublished" datetime="2026-03-13T15:00:00+08:00">2026-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-18 22:15:48" itemprop="dateModified" datetime="2026-04-18T22:15:48+08:00">2026-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/hexo-blog-source/categories/CS-Study/" itemprop="url" rel="index"><span itemprop="name">CS Study</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="引言：CSAPP中讲述了很多底层的原理，这很吸引人（学起来bushi），所以主包打算在一开学就开始搞这个东西，用了一个星期左右在课余学习了一下这些诡异的规则然后做完上面的题目，主要想要记录一下自己的一些思路，也算是push自己去做一些输出。">引言：CSAPP中讲述了很多底层的原理，这很吸引人（学起来bushi），所以主包打算在一开学就开始搞这个东西，用了一个星期左右在课余学习了一下这些诡异的规则然后做完上面的题目，主要想要记录一下自己的一些思路，也算是push自己去做一些输出。</h2>
+<hr>
+<h2 id="0、一些主包注意到的东西">0、一些主包注意到的东西</h2>
+<p>这个鬼lab并不友好，它限制了很多条件判断符的使用，仅在实在没招了才给人用ifelse语句，因此需要格外注意注释部分防止违反规定。</p>
+<h2 id="1、整数部分">1、整数部分</h2>
+<p>整数部分主要有按位与、按位或等位运算操作，理解不算困难。</p>
+<h3 id="bitAnd函数（按位与）">bitAnd函数（按位与）</h3>
+<p>考虑到按位与需要同为1才为1，而题目限制只能用|和~符号，所以需要进行转换。注意到按位或的全为0才为0的情况和按位与为1有异曲同工之妙，所以可以先按位反之后再按位或，最后取反取得正确结果。下面是代码。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">bitAnd</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ~(~x | ~y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="bitXor函数（按位异或）">bitXor函数（按位异或）</h3>
+<p>同样进行了限制（只允许使用&amp;和~），那么就分情况写：按位异或是相同时为0，不同为1，那么我们可以让x和y分别取反，这样不等的位置始终为0，但是相等的位置一定有一次为1，对两次取反后做按位与操作可以把不等的情况转化为0，相等情况变为1，再取反就行了。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">bitXor</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> ~(~(~x &amp; y) &amp; ~(x &amp; ~y));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="allOddBits函数（奇数位为1）">allOddBits函数（奇数位为1）</h3>
+<p>这一题需要构造掩码，（也是非常辛苦的学习了一下16进制然后发现自己的进制方面简直达芬），用一个0xAA构造一个奇数位是1，偶数位全是0的掩码，之后用按位或来做原数据处理就行，这里算是掩码的开端，理解了后面会感觉挺顺。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">allOddBits</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> m8=<span class="number">0xAA</span>;</span><br><span class="line">  <span class="type">int</span> m16=(m8 &lt;&lt; <span class="number">8</span>) | m8;</span><br><span class="line">  <span class="type">int</span> m32=(m16 &lt;&lt; <span class="number">16</span>) | m16;</span><br><span class="line">  <span class="keyword">return</span> !((x &amp; m32) ^ m32);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="isAsciiDigit函数">isAsciiDigit函数</h3>
+<p>需要判断x是否属于（0x30,0x39）区间，但是肯定是不给用大于小于号的，所以我们可以用加减法进行判断。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">isAsciiDigit</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> sign = ((x+(~<span class="number">0x30</span>+<span class="number">1</span>))|(<span class="number">0x39</span>+(~x+<span class="number">1</span>)))&gt;&gt;<span class="number">31</span>;</span><br><span class="line">  <span class="keyword">return</span> !(sign&amp;<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="conditional函数">conditional函数</h3>
+<p>这个可能是主包做完最力竭的函数之一。要求是如果x为0就输出z，1就输出y，所以第一步取双重否定就能得到结果。但是要怎么得到结果呢？是的又是掩码。注意到如果把这个结果取反加一，那么会得到两个结果：结果为1时，会得到全为1的掩码；结果为0时掩码是全为0的。那么就可以用来做一个判断处理。类似于上面的allOddBits。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">conditional</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> z)</span> &#123;</span><br><span class="line">  <span class="type">int</span> x_bool=!!x;</span><br><span class="line">  x_bool=~x_bool+<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> (x_bool &amp; y)|(~x_bool &amp; z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="logicalNeg函数">logicalNeg函数</h3>
+<p>这个函数也是孩子认为绝顶妙的一个。首先给x做取反加1的操作（即取相反数）：如果x是正数，那么取反之后符号位就是1，此时再和原来的x取按位或，右移31位后就变成全为1的掩码，加1变0；而如果是0则会得出来1。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">logicalNeg</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> a=((x|(~x+<span class="number">1</span>))&gt;&gt;<span class="number">31</span>)+<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="howManyBits函数">howManyBits函数</h3>
+<p>这个函数是要求多少位才能表示出x，需要用到一点二分的思想，不断的二分查找最高位1的位置。如果让符号位右移31位，再和原数异或，将得到正数不变，负数取反。正数找最高1即可，再加一位表示符号；负数需要记到符号位，不过最高位0后全是符号位，所以也需要找到最高位的0再加1就行了。所以我们和符号位取异或的操作完全可以。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">howManyBits</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> bit16,bit8,bit4,bit2,bit1;</span><br><span class="line">  x= x^(x&gt;&gt;<span class="number">31</span>);</span><br><span class="line">  bit16 = (!!(x&gt;&gt;<span class="number">16</span>))&lt;&lt;<span class="number">4</span>;</span><br><span class="line">  x =x &gt;&gt; bit16;</span><br><span class="line">  bit8 = (!!(x&gt;&gt;<span class="number">8</span>))&lt;&lt;<span class="number">3</span>;</span><br><span class="line">  x=x &gt;&gt; bit8;</span><br><span class="line">  bit4 = (!!(x&gt;&gt;<span class="number">4</span>))&lt;&lt;<span class="number">2</span>;</span><br><span class="line">  x=x&gt;&gt;bit4;</span><br><span class="line">  bit2 = (!!(x&gt;&gt;<span class="number">2</span>))&lt;&lt;<span class="number">1</span>;</span><br><span class="line">  x=x&gt;&gt;bit2;</span><br><span class="line">  bit1 = (!!(x&gt;&gt;<span class="number">1</span>));</span><br><span class="line">  x=x&gt;&gt;bit1;</span><br><span class="line"> <span class="keyword">return</span> bit16+bit8+bit4+bit2+bit1+x+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="浮点部分">浮点部分</h2>
+<p>整数部分是属于压榨操作符的操作上限，浮点数部分(Float)感觉更像是对 IEEE 754 的考察。虽然操作空间('if-else’和任意常数)放大了，但是必须处理好符号位(s),阶码(exp)和尾数(frac).</p>
+<p>绝大部分开头都可以这样子提取这些位置：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> sign = uf &amp; <span class="number">0x80000000</span>;      <span class="comment">// 提取最高位符号</span></span><br><span class="line"><span class="type">int</span> <span class="built_in">exp</span>  = (uf &gt;&gt; <span class="number">23</span>) &amp; <span class="number">0xFF</span>;    <span class="comment">// 提取 8 位阶码</span></span><br><span class="line"><span class="type">int</span> frac = uf &amp; <span class="number">0x7FFFFF</span>;        <span class="comment">// 提取 23 位尾数</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="1-乘2函数-floatScale2">1. 乘2函数(floatScale2)</h3>
+<p>这个是要求‘2*f’的数值的函数，在浮点数表示标准下(IEEE 754),肯定不能无脑移位的。</p>
+<h4 id="思路（分类讨论）">思路（分类讨论）</h4>
+<p>既然要处理浮点数，那就要根据阶码分情况讨论<strong>它是哪种类型的数。</strong></p>
+<ol>
+<li><strong>特殊值（exp == 0xFF）：</strong> 无论是无穷大还是NaN，乘以 2 仍是本身，原样返回就行。</li>
+<li><strong>非规格化数（exp == 0）：</strong> 此时数值极小，尾数部分没有隐藏的1，乘以2只要保留符号位，将尾数左移一位就可以了，如果溢出也可以到阶码部分。</li>
+<li><strong>规格化（就是介于上两个情况中间的）：</strong> 位数不能变，阶码加一。</li>
+</ol>
+<h4 id="代码实现">代码实现</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="title function_">floatScale2</span><span class="params">(<span class="type">unsigned</span> uf)</span> &#123;</span><br><span class="line">    <span class="type">int</span> sign = uf &amp; <span class="number">0x80000000</span>;</span><br><span class="line">    <span class="type">int</span> <span class="built_in">exp</span>  = (uf &gt;&gt; <span class="number">23</span>) &amp; <span class="number">0xFF</span>;</span><br><span class="line">    <span class="type">int</span> frac = uf &amp; <span class="number">0x007FFFFF</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">exp</span> == <span class="number">0xFF</span>) <span class="keyword">return</span> uf; <span class="comment">// NaN 或 Inf</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">exp</span> == <span class="number">0</span>) <span class="keyword">return</span> (frac &lt;&lt; <span class="number">1</span>) | sign; <span class="comment">// 非规格化数</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">exp</span>++; <span class="comment">// 规格化数阶码加一</span></span><br><span class="line">    <span class="keyword">return</span> sign | (<span class="built_in">exp</span> &lt;&lt; <span class="number">23</span>) | frac;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-类型转换：floatFloat2Int">2. 类型转换：floatFloat2Int</h3>
+<p>要求实现<code>(int) f</code>的转换，其实这个就是需要非常熟悉浮点数的表示标准，按部就班替换。</p>
+<h4 id="思路">思路</h4>
+<p>我们需要还原真实的阶码值 <code>E = exp - 127</code>。</p>
+<ol>
+<li>**下溢出（E&lt;0）：**浮点数绝对值小于1，直接向下取到0就行。</li>
+<li><strong>上溢出（E&gt;=31）：</strong> 32 位有符号整数最大只能表示到 <code>2^31 - 1</code>。阶码达到或超过 31 直接越界，按题意返回溢出标志 <code>0x80000000u</code>。<br>
+<strong>正常转换：</strong> 为尾数补充隐藏的 1（即 <code>frac = frac | 0x800000</code>）。
+<ul>
+<li>若 <code>E &lt; 23</code>，说明小数部分有赘余，需右移截断：<code>frac &gt;&gt;= (23 - E)</code>。</li>
+<li>若 <code>E &gt; 23</code>，说明整数部分还没移完，需左移放大：<code>frac &lt;&lt;= (E - 23)</code>。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-数学与位级的桥梁：floatPower2">3. 数学与位级的桥梁：floatPower2</h3>
+<p>求 <code>2^x</code> 的浮点数表示。这题相对轻松，是对阶码偏移量（Bias = 127）的直接应用。</p>
+<h4 id="核心思路">核心思路</h4>
+<ul>
+<li>若 <code>x</code> 太小（<code>x &lt; -149</code>）：连最小的非规格化数都无法表示，返回 0。</li>
+<li>若 <code>x</code> 适中（<code>-126 &lt;= x &lt;= 127</code>）：直接计算 <code>x + 127</code> 放入 <code>exp</code> 字段，尾数全填 0。</li>
+<li>若 <code>x</code> 极大：返回无穷大的位模式（即 <code>exp = 0xFF</code>, <code>frac = 0</code>）。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
