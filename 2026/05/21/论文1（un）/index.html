@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/hexo-blog-source/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/hexo-blog-source/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/hexo-blog-source/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/hexo-blog-source/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/hexo-blog-source/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"2846807617frank-ops.github.io","root":"/hexo-blog-source/","images":"/hexo-blog-source/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/hexo-blog-source/js/config.js" defer></script>
+
+    <meta name="description" content="新领域。难。勉强先读了几篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【论文】Memory in the Age of AI Agents:A Survey">
+<meta property="og:url" content="https://2846807617frank-ops.github.io/hexo-blog-source/2026/05/21/%E8%AE%BA%E6%96%871%EF%BC%88un%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="新领域。难。勉强先读了几篇">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-21T07:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-27T10:59:22.876Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="智能体记忆，Agent">
+<meta property="article:tag" content="科研">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://2846807617frank-ops.github.io/hexo-blog-source/2026/05/21/%E8%AE%BA%E6%96%871%EF%BC%88un%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://2846807617frank-ops.github.io/hexo-blog-source/2026/05/21/%E8%AE%BA%E6%96%871%EF%BC%88un%EF%BC%89/","path":"2026/05/21/论文1（un）/","title":"【论文】Memory in the Age of AI Agents:A Survey"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【论文】Memory in the Age of AI Agents:A Survey | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/hexo-blog-source/js/utils.js" defer></script><script src="/hexo-blog-source/js/motion.js" defer></script><script src="/hexo-blog-source/js/sidebar.js" defer></script><script src="/hexo-blog-source/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/hexo-blog-source/css/noscript.css">
+  </noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+<link rel="alternate" href="/hexo-blog-source/feed.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/hexo-blog-source/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Representation%E2%80%93Management-Perspective"><span class="nav-number">1.</span> <span class="nav-text">1. Representation–Management Perspective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%99%BA%E8%83%BD%E4%BD%93%E8%AE%B0%E5%BF%86%EF%BC%8CLLM%E8%AE%B0%E5%BF%86%EF%BC%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">2.智能体记忆，LLM记忆，上下文区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%99%BA%E8%83%BD%E4%BD%93%E8%AE%B0%E5%BF%86-Agent-Memory"><span class="nav-number">2.1.</span> <span class="nav-text">1.智能体记忆(Agent Memory)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-LLM%E5%86%85%E9%83%A8%E8%AE%B0%E5%BF%86-LLM-Memory"><span class="nav-number">2.2.</span> <span class="nav-text">2. LLM内部记忆(LLM Memory)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B-Context-Engineering"><span class="nav-number">2.3.</span> <span class="nav-text">3.上下文工程(Context Engineering)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%99%BA%E8%83%BD%E4%BD%93%E8%AE%B0%E5%BF%86%E5%88%86%E7%B1%BB%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">3.智能体记忆分类？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Token-level"><span class="nav-number">3.1.</span> <span class="nav-text">1. Token-level</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Intermediate-Latent-as-Memory"><span class="nav-number">3.2.</span> <span class="nav-text">2.Intermediate Latent as Memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Parameter-as-Memory"><span class="nav-number">3.3.</span> <span class="nav-text">3.Parameter as Memory</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%8A%9F%E8%83%BD%E7%BB%B4%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text">4.功能维度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Memory-Lifecycle"><span class="nav-number">4.1.</span> <span class="nav-text">2.1 Memory Lifecycle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Memory-Evolution"><span class="nav-number">4.2.</span> <span class="nav-text">2.2 Memory Evolution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Memory-Retrieval"><span class="nav-number">4.3.</span> <span class="nav-text">2.3 Memory Retrieval</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">一些想法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/hexo-blog-source/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://2846807617frank-ops.github.io/hexo-blog-source/2026/05/21/%E8%AE%BA%E6%96%871%EF%BC%88un%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo-blog-source/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【论文】Memory in the Age of AI Agents:A Survey | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【论文】Memory in the Age of AI Agents:A Survey
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-05-21 15:00:00" itemprop="dateCreated datePublished" datetime="2026-05-21T15:00:00+08:00">2026-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-06-27 18:59:22" itemprop="dateModified" datetime="2026-06-27T18:59:22+08:00">2026-06-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>新领域。难。勉强先读了几篇</p>
+<span id="more"></span>
+<hr>
+<h2 id="1-Representation–Management-Perspective">1. Representation–Management Perspective</h2>
+<p>这属于一篇综述。（自然是作者目前该读的。）大概介绍了目前几种记忆系统，主要解决的是由于长上下文的 *** 记忆流失 *** 问题。</p>
+<h2 id="2-智能体记忆，LLM记忆，上下文区别">2.智能体记忆，LLM记忆，上下文区别</h2>
+<h3 id="1-智能体记忆-Agent-Memory">1.智能体记忆(Agent Memory)</h3>
+<p>目的是形成并维护一个持久化的外部的认知状态，积累交互的经验，提供个性化和决策连贯性。会随着记忆增加进行自演化。目前有各种手段实现，如图谱记忆、提取总结等。</p>
+<h3 id="2-LLM内部记忆-LLM-Memory">2. LLM内部记忆(LLM Memory)</h3>
+<p>目的是在单次对话或推理时对注意力和效率进行优化，但是仅在单次前向传播时维护，结束销毁，目前有调节内部参数、KV Cache修剪等方法。</p>
+<h3 id="3-上下文工程-Context-Engineering">3.上下文工程(Context Engineering)</h3>
+<p>目的是在上下文窗口内最大化资源利用率和prompt的密度。上下文更侧重于单次查询时进行编排和裁剪，目前有滑窗、上下文压缩这些。</p>
+<h2 id="3-智能体记忆分类？">3.智能体记忆分类？</h2>
+<p>以下会介绍论文为该部分目前的分类与总结。</p>
+<h3 id="1-Token-level">1. Token-level</h3>
+<p>*** build *** ：即对原始对话进行语义摘要、知识提取、构建多级图谱。<br>
+*** update ***：对原始的关系链进行操作，对陈旧事实选择性遗忘，重组语义和时序线索。<br>
+*** query ***：语义向量匹配、时序加权过滤、拓扑关联游走。<br>
+这一部分记录的是 *** 事实记忆 ***，及经验记忆中的案例及其策略。</p>
+<h3 id="2-Intermediate-Latent-as-Memory">2.Intermediate Latent as Memory</h3>
+<p>*** build ***：捕获Transformer层级特征、会话KV Cache持久化快照序列化编码，通过记录  Key-Value 对进行复用、或使用External Vectors、Steering Vectors。<br>
+*** update ***：激活单元动态逐出、跨会话缓存合并与平滑语义压实等进行更新。如具有残差保留的低秩压缩，<br>
+*** query ***：跨对话缓存热加载、位置编码动态对齐缩放、隐空间注意力重映射等。如RetrievalAttention 将 KV 状态视为可检索项，使<br>
+用近似最近邻搜索。</p>
+<h3 id="3-Parameter-as-Memory">3.Parameter as Memory</h3>
+<p>*** build ***：不是纯记忆，属于用参数的微调，主要用LoRA、非局部神经元知识注入、梯度反向传播训练构建。<br>
+*** update ***：不断微调参数，如连续终身学习约束、参数零空间模型编辑（AlphaEdit）、多LoRA专家适配器蒸馏。<br>
+*** query ***：前向激活自然检索、LoRA适配器动态路由切换、参数化行为本能提取。通过正向计算隐式访问，并通过记忆现象进行分析。</p>
+<h2 id="4-功能维度">4.功能维度</h2>
+<h3 id="2-1-Memory-Lifecycle">2.1 Memory Lifecycle</h3>
+<p>包括工具调用，结果，推理过程，reflection，observation。需要先作为记忆候选对象，提取信息之后再存储，必要时更新，EverOS有类似做法，挂在子进程进行写入不会导致交互页面出现阻塞。</p>
+<h3 id="2-2-Memory-Evolution">2.2 Memory Evolution</h3>
+<p>更新记忆，需要写入智能体的数据库内，其中需要用一些算法处理冲突和新记忆，需要有遗忘和总结。更新很多以信息密度为判断，或者以不同元之间的新关系，或者创造一个新元。</p>
+<h3 id="2-3-Memory-Retrieval">2.3 Memory Retrieval</h3>
+<p>检索到的信息作为<strong>working memory</strong>使用，这部分检索在传统RAG内用到语义向量检索。而像memgen这种<strong>Parameter as Memory</strong>会用weaver结构设计成参数的调整；<strong>Intermediate Latent as Memory</strong> 会用隐状态作为查询向量Q,通过与缓存中历史token的key计算点积并经过softmax，在全局或局部范围内检索并加权聚合对应的value。不过要依赖硬件加速；或通过k-NN检索或动态稀疏化路由检索，利用当前隐表征作为query通过近似最近邻搜索召回k-v值，之后进行缝合到当前注意力机制中进行计算。</p>
+<h2 id="一些想法">一些想法</h2>
+<p>当前读了一些典型的记忆方面的文章，打算进一步了解这个领域后再做决定要向哪个比较适合的领域研究。希望可以做扎实点，不过后期还有期末要准备，希望强度不要太高。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/hexo-blog-source/tags/%E7%A7%91%E7%A0%94/" rel="tag"># 科研</a>
+              <a href="/hexo-blog-source/tags/%E6%99%BA%E8%83%BD%E4%BD%93%E8%AE%B0%E5%BF%86%EF%BC%8CAgent/" rel="tag"># 智能体记忆，Agent</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/hexo-blog-source/2026/03/20/BombLab/" rel="prev" title="【学习复盘】CS:APP:BombLab复盘">
+                  <i class="fa fa-angle-left"></i> 【学习复盘】CS:APP:BombLab复盘
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -9,7 +9,22 @@
   <link href="https://2846807617frank-ops.github.io/hexo-blog-source/feed.xml" rel="self"/>
   <rights>All rights reserved 2026, John Doe</rights>
   <title>Hexo</title>
-  <updated>2026-04-18T15:14:13.987Z</updated>
+  <updated>2026-06-27T10:59:22.876Z</updated>
+  <entry>
+    <author>
+      <name>John Doe</name>
+    </author>
+    <category term="科研" scheme="https://2846807617frank-ops.github.io/hexo-blog-source/tags/%E7%A7%91%E7%A0%94/"/>
+    <category term="智能体记忆，Agent" scheme="https://2846807617frank-ops.github.io/hexo-blog-source/tags/%E6%99%BA%E8%83%BD%E4%BD%93%E8%AE%B0%E5%BF%86%EF%BC%8CAgent/"/>
+    <id>https://2846807617frank-ops.github.io/hexo-blog-source/2026/05/21/%E8%AE%BA%E6%96%871%EF%BC%88un%EF%BC%89/</id>
+    <link href="https://2846807617frank-ops.github.io/hexo-blog-source/2026/05/21/%E8%AE%BA%E6%96%871%EF%BC%88un%EF%BC%89/"/>
+    <published>2026-05-21T07:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>新领域。难。勉强先读了几篇</p>]]>
+    </summary>
+    <title>【论文】Memory in the Age of AI Agents:A Survey</title>
+    <updated>2026-06-27T10:59:22.876Z</updated>
+  </entry>
   <entry>
     <author>
       <name>John Doe</name>
