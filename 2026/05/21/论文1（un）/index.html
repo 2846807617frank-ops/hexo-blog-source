@@ -28,7 +28,7 @@
 <meta property="og:description" content="新领域。难。勉强先读了几篇">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-05-21T07:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-27T11:02:32.868Z">
+<meta property="article:modified_time" content="2026-06-27T11:05:16.504Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Agent">
 <meta property="article:tag" content="智能体记忆">
@@ -216,7 +216,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-06-27 19:02:32" itemprop="dateModified" datetime="2026-06-27T19:02:32+08:00">2026-06-27</time>
+      <time title="Modified: 2026-06-27 19:05:16" itemprop="dateModified" datetime="2026-06-27T19:05:16+08:00">2026-06-27</time>
     </span>
 
   
@@ -243,19 +243,19 @@
 <h2 id="3-智能体记忆分类？">3.智能体记忆分类？</h2>
 <p>以下会介绍论文为该部分目前的分类与总结。</p>
 <h3 id="1-Token-level">1. Token-level</h3>
-<p>*** build *** ：即对原始对话进行语义摘要、知识提取、构建多级图谱。<br>
-*** update ***：对原始的关系链进行操作，对陈旧事实选择性遗忘，重组语义和时序线索。<br>
-*** query ***：语义向量匹配、时序加权过滤、拓扑关联游走。<br>
+<p><em><strong>build</strong></em> ：即对原始对话进行语义摘要、知识提取、构建多级图谱。<br>
+<em><strong>update</strong></em>：对原始的关系链进行操作，对陈旧事实选择性遗忘，重组语义和时序线索。<br>
+<em><strong>query</strong></em>：语义向量匹配、时序加权过滤、拓扑关联游走。<br>
 这一部分记录的是 *** 事实记忆 ***，及经验记忆中的案例及其策略。</p>
 <h3 id="2-Intermediate-Latent-as-Memory">2.Intermediate Latent as Memory</h3>
-<p>*** build ***：捕获Transformer层级特征、会话KV Cache持久化快照序列化编码，通过记录  Key-Value 对进行复用、或使用External Vectors、Steering Vectors。<br>
-*** update ***：激活单元动态逐出、跨会话缓存合并与平滑语义压实等进行更新。如具有残差保留的低秩压缩，<br>
-*** query ***：跨对话缓存热加载、位置编码动态对齐缩放、隐空间注意力重映射等。如RetrievalAttention 将 KV 状态视为可检索项，使<br>
+<p><em><strong>build</strong></em>：捕获Transformer层级特征、会话KV Cache持久化快照序列化编码，通过记录  Key-Value 对进行复用、或使用External Vectors、Steering Vectors。<br>
+<em><strong>update</strong></em>：激活单元动态逐出、跨会话缓存合并与平滑语义压实等进行更新。如具有残差保留的低秩压缩，<br>
+<em><strong>query</strong></em>：跨对话缓存热加载、位置编码动态对齐缩放、隐空间注意力重映射等。如RetrievalAttention 将 KV 状态视为可检索项，使<br>
 用近似最近邻搜索。</p>
 <h3 id="3-Parameter-as-Memory">3.Parameter as Memory</h3>
-<p>*** build ***：不是纯记忆，属于用参数的微调，主要用LoRA、非局部神经元知识注入、梯度反向传播训练构建。<br>
-*** update ***：不断微调参数，如连续终身学习约束、参数零空间模型编辑（AlphaEdit）、多LoRA专家适配器蒸馏。<br>
-*** query ***：前向激活自然检索、LoRA适配器动态路由切换、参数化行为本能提取。通过正向计算隐式访问，并通过记忆现象进行分析。</p>
+<p><em><strong>build</strong></em>：不是纯记忆，属于用参数的微调，主要用LoRA、非局部神经元知识注入、梯度反向传播训练构建。<br>
+<em><strong>update</strong></em>：不断微调参数，如连续终身学习约束、参数零空间模型编辑（AlphaEdit）、多LoRA专家适配器蒸馏。<br>
+<em><strong>query</strong></em>：前向激活自然检索、LoRA适配器动态路由切换、参数化行为本能提取。通过正向计算隐式访问，并通过记忆现象进行分析。</p>
 <h2 id="4-功能维度">4.功能维度</h2>
 <h3 id="2-1-Memory-Lifecycle">2.1 Memory Lifecycle</h3>
 <p>包括工具调用，结果，推理过程，reflection，observation。需要先作为记忆候选对象，提取信息之后再存储，必要时更新，EverOS有类似做法，挂在子进程进行写入不会导致交互页面出现阻塞。</p>
